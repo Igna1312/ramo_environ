@@ -1,0 +1,190 @@
+---
+title: "Análisis SPEI"
+format:
+  html:
+    fig-width: 8
+    fig-height: 4
+---
+
+## Cargar paquetes y datos
+
+```{r}
+
+rm(list = ls())  # Limpia el entorno (opcional, para partir de cero)
+
+###########################################################
+# 1. Cargar paquetes necesarios
+###########################################################
+pkgs <- c("dplyr", "ggplot2", "SPEI", "lubridate", "purrr", "tibble")
+
+inst <- pkgs[!pkgs %in% installed.packages()[, "Package"]]
+if (length(inst) > 0) install.packages(inst)
+
+lapply(pkgs, library, character.only = TRUE)
+
+###########################################################
+# 2. Leer las bases de cada estación
+###########################################################
+
+cogoti_raw <- read.csv(
+  "data/cogoti_spei.csv",
+  header = TRUE,
+  stringsAsFactors = FALSE
+)
+
+ramadas_raw <- read.csv(
+  "data/ramadas_spei.csv",
+  header = TRUE,
+  stringsAsFactors = FALSE,
+  sep = ";"
+)
+
+# Revisa cómo se llaman las columnas
+names(cogoti_raw)
+names(ramadas_raw)
+
+###########################################################
+# 3. Dejar los mismos nombres de columnas en ambas bases
+#    (agno, mes, dia, pmen, tmax, tmin)
+###########################################################
+names(cogoti_raw)  <- c("agno", "mes", "dia", "pmen", "tmax", "tmin")
+names(ramadas_raw) <- c("agno", "mes", "dia", "pmen", "tmax", "tmin")
+
+###########################################################
+# 4. Crear columna de fecha y marcar estación meteorológica
+###########################################################
+cogoti <- cogoti_raw |>
+  mutate(
+    estacion = "Cogotí",
+    fecha    = make_date(year = agno, month = mes, day = dia)
+  )
+
+ramadas <- ramadas_raw |>
+  mutate(
+    estacion = "Las Ramadas",
+    fecha    = make_date(year = agno, month = mes, day = dia)
+  )
+
+###########################################################
+# 5. Unir ambas estaciones en un solo data frame
+###########################################################
+datos <- bind_rows(cogoti, ramadas) |>
+  arrange(estacion, fecha)
+
+###########################################################
+# 6. Calcular ETP (Hargreaves) y balance hídrico
+###########################################################
+# IMPORTANTE:
+# - Aquí puedes filtrar NAs si tu base tiene días/meses sin datos (acá hubieron como 4 datos perdidos OJITO).
+#   Ejemplo: filter(!is.na(tmax), !is.na(tmin), !is.na(pmen))
+###########################################################
+datos <- datos |>
+  mutate(
+    etp  = hargreaves(tmin, tmax, lat = -31.035833),  # Cambia lat si quieres otra
+    bal  = pmen - etp
+  )
+
+###########################################################
+# 7. Usar purrr para calcular SPEI por estación meteo
+###########################################################
+# Separa la base en una lista: una tabla por estación ("Cogotí", "Ramadas")
+lista_est <- split(datos, datos$estacion)
+
+# Función que calcula SPEI k-mensual para una estación
+calc_spei_estacion <- function(df, escala = 12) {
+  df <- df[order(df$fecha), ]      # Ordenar por fecha por si acaso
+  spei_obj <- spei(df$bal, escala) # Cálculo de SPEI
+  
+  tibble(
+    fecha    = df$fecha,
+    estacion = unique(df$estacion),
+    spei     = as.numeric(spei_obj$fitted),
+    escala   = escala
+  )
+}
+
+# SPEI-12 meses 
+spei12_est <- map_dfr(lista_est, calc_spei_estacion, escala = 12)
+
+# (Opcional) SPEI-3 meses:
+spei3_est  <- map_dfr(lista_est, calc_spei_estacion, escala = 3)
+
+###########################################################
+# 8. Gráfico tipo “pluma” SPEI-12 (barras azules/rojas)
+###########################################################
+# AQUÍ ES DONDE PUEDES CAMBIAR:
+# - Colores de seco/húmedo (scale_fill_manual)
+# - Título, ejes, tamaño de letra (labs + theme)
+# - N° de columnas de los facets (facet_wrap)
+###########################################################
+
+ggplot(spei12_est, aes(x = fecha, y = spei)) +
+  # Línea horizontal en 0 (umbral neutral)
+  geom_hline(yintercept = 0, color = "grey40", linewidth = 0.4) +
+  
+  # Barras: las positivas van hacia arriba, las negativas hacia abajo
+  # Usamos ifelse dentro de aes(y = ...) para que siempre partan desde 0
+  geom_col(
+    data = ~ subset(.x, spei >= 0),
+    aes(y = spei),
+    fill = "#6a994e",        # ← COLOR DE LAS BARRAS HÚMEDAS (cámbialo aquí)
+    width = 30                  # ancho aproximado de la barra (días)
+  ) +
+  geom_col(
+    data = ~ subset(.x, spei < 0),
+    aes(y = spei),
+    fill = "darkred",        # ← COLOR DE LAS BARRAS SECAS (cámbialo aquí)
+    width = 30
+  ) +
+  
+  # Un panel por estación meteorológica
+  facet_wrap(~ estacion, ncol = 1, scales = "free_x") +
+  
+  # Títulos de los ejes y del gráfico
+  labs(
+    title = "Índice Estandarizado de Evotranspiración (SPEI) de 12 meses",
+    x     = "Años",
+    y     = "Valor del balance hídrico"
+  ) +
+  
+  # Tema visual general
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title   = element_text(face = "bold", hjust = 0.5),  # centrado
+    strip.text   = element_text(face = "bold", size = 14),    # títulos de los panels
+    axis.text.x  = element_text(angle = 45, hjust = 1),       # etiquetas de años inclinadas
+    panel.grid.minor = element_blank()
+  )
+
+###########################################################
+# 9. (Opcional) Mismo tipo de gráfico, pero para SPEI-3
+###########################################################
+ggplot(spei3_est, aes(x = fecha, y = spei)) +
+  geom_hline(yintercept = 0, color = "grey40", linewidth = 0.4) +
+  geom_col(
+    data = ~ subset(.x, spei >= 0),
+    aes(y = spei),
+    fill = "#6a994e",        
+    width = 30
+  ) +
+  geom_col(
+    data = ~ subset(.x, spei < 0),
+    aes(y = spei),
+    fill = "darkred",
+    width = 30
+  ) +
+  facet_wrap(~ estacion, ncol = 1, scales = "free_x") +
+  labs(
+    title = "Índice Estandarizado de Evotranspiración (SPEI) de 3 meses",
+    x     = "Años",
+    y     = "Valor del balance hídrico"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title   = element_text(face = "bold", hjust = 0.5),
+    strip.text   = element_text(face = "bold", size = 14),
+    axis.text.x  = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank()
+  )
+
+```

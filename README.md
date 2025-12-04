@@ -1,2 +1,1 @@
-# ramo_environ
-proyecto final del curso ""
+# spei-cogoti-ramadas

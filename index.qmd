@@ -1,0 +1,51 @@
+---
+title: "Análisis exploratorio de la sequía en Cogotí y Las Ramadas (Región de Coquimbo, Chile)"
+author: Ignacio Pizarro
+format:
+  html:
+    toc: false
+---
+
+![Viejo mirando a los caballos oh el weon amanerao](data/IMG.jpg){fig-alt="Mapa de la zona de estudio (Cogotí y Las Ramadas, Región de Coquimbo)." width="100%"}
+
+# Análisis del índice SPEI en Cogotí y Ramadas
+
+Este sitio reúne un análisis exploratorio del índice de Precipitación-Evapotranspiración Estandarizado (SPEI), este permite medir la sequía en un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos) en dos estaciones meteorológicas de dos localidades:
+
+-   **Cogotí**
+-   **Las Ramadas**
+
+A partir de series históricas de precipitación y temperatura máxima/mínima, se calcula:
+
+1.  La **evapotranspiración potencial (ETP)** mediante el método de Hargreaves.\
+2.  El **balance hídrico mensual** (precipitación menos ETP).\
+3.  El **SPEI** a distintas escalas temporales (3 y 12 meses), para identificar periodos de sequía y humedad.
+
+------------------------------------------------------------------------
+
+## Exploración de datos
+
+-   Una serie con los registros de cada estación.
+-   Gráficos del **SPEI a 12 meses**, que permiten ver tendencias de sequía prolongada en el tiempo.
+-   Gráficos del **SPEI a 3 meses**, útiles para variaciones más rápidas en la disponibilidad hídrica, siendo útil para evaluar los efectos en actividades de agricultura y ganadería.
+
+![La foto mas HD que pude encontrar](data/images-2.jpeg){fig-alt="Mapa de la zona de estudio (Cogotí y Las Ramadas, Región de Coquimbo)." width="100%"}
+
+
+Puedes ir directamente al análisis detallado acá:
+
+
+
+-   👉 [Ver análisis SPEI](spei.qmd)
+
+------------------------------------------------------------------------
+## Conclusiones
+------------------------------------------------------------------------
+
+## Notas técnicas
+-   Datos provenientes de la plataforma https://explorador.cr2.cl del Centro de Ciencia del Clima y Resiliencia (CR2)
+-   Datos utilizados: series mensuales de precipitación (mm), temperatura máxima (°C) y mínima (°C).
+-   Uso del paquete ***SPEI*** en RStudio con el cálculo de Evotranspiración: función `hargreaves()` 
+-   Cálculo de SPEI: función `spei()` del mismo paquete, para escalas de 3 y 12 meses.
+-   Sitio generado con **Quarto** y publicado como website estático.
+

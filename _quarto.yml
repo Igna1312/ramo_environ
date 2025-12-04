@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "SPEI – Cogotí y Ramadas"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: spei.qmd
+        text: Análisis SPEI
+
+format:
+  html:
+    theme: cosmo
+    toc: true
