@@ -14,6 +14,7 @@ lang: es
 ## 1. Configuración Inicial
 
 Cargamos las librerías necesarias y definimos las rutas de los 6 archivos crudos (Precipitación, T.Máx y T.Mín para cada estación).
+
 ```{r}
 #| label: setup
 #| warning: false
@@ -61,9 +62,10 @@ if (!dir.exists(dir_data_proc)) dir.create(dir_data_proc, recursive = TRUE)
 message("Configuración exitosa. Archivos crudos encontrados.")
 ```
 
-2. Procesamiento e Integración de Datos
+2.  Procesamiento e Integración de Datos
 
 En esta etapa leemos los archivos individuales de temperatura y precipitación, los unimos por año y mes, y calculamos el balance hídrico.
+
 ```{r}
 #| label: procesamiento
 #| message: false
@@ -129,9 +131,10 @@ datos_spei <- datos %>%
 glimpse(datos_spei)
 ```
 
-3. Visualización: Precipitación Mensual
+3.  Visualización: Precipitación Mensual
 
 Análisis de la distribución de lluvias para la estación Las Ramadas (1970-2015).
+
 ```{r}
 #| label: fig-boxplot
 #| fig-cap: "Distribución de precipitación mensual en Las Ramadas (1970-2015)"
@@ -164,9 +167,10 @@ plot_boxplot()
 dev.off()
 ```
 
-4. Visualización: Índice SPEI
+4.  Visualización: Índice SPEI
 
 Evolución histórica de las sequías (SPEI-12 y SPEI-3).
+
 ```{r}
 #| label: fig-spei
 #| fig-height: 10

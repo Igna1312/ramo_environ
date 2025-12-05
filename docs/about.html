@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ignacio Pizarro">
 
-<title>Análisis exploratorio de la sequía en Combarbalá (Región de Coquimbo, Chile) – SPEI – Cogotí y Ramadas</title>
+<title>About – SPEI – Cogotí y Ramadas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,16 +123,12 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./pagina-quarto/index.qmd"> 
+    <a class="nav-link" href="./index.qmd"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pagina-quarto/spei.html"> 
+    <a class="nav-link" href="./spei.qmd"> 
 <span class="menu-text">Análisis SPEI</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./pagina-quarto/precipitacion.html"> 
-<span class="menu-text">Precipitación</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -112,25 +141,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Análisis exploratorio de la sequía en Combarbalá (Región de Coquimbo, Chile)</h1>
+<h1 class="title">About</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ignacio Pizarro </p>
-          </div>
-  </div>
     
   
     
@@ -141,90 +166,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../imagenes/IMG.jpg" class="img-fluid figure-img" style="width:100.0%" alt="inicio de veranadas en combarbalá"></p>
-<figcaption>Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)</figcaption>
-</figure>
+<p>About this site</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
 </div>
-<p>Combarbalá es una comuna rural de la Región de Coquimbo caracterizada por tener un clima semiárido de veranos secos e inviernos con altas precipitaciones. Esto se debe principalmente a que la comuna (Al igual que el resto del Norte chico) es altamente sensible al ENSO - El Niño Oscilación Sur, un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.</p>
-<p>Las comunidades rurales de la comuna se han adaptado a esta oscilación teniendo un sistema de pastoreo que además está presente en todo el norte chico: La transhumancia o criancería caprina, la cual se divide las zonas de pastoreo en veranada e invernada. Esta forma de ganadería tradicional regula los tiempos de pastoreo en función de la disponibilidad de recursos hídricos y es una forma de adaptarse a la oscilación constante de precipitaciones producto del ENSO. A pesar de esta adaptación, los crianceros reportan en la actualidad que las veranadas están cambiando por una disminución nunca antes vista sobre la disponibilidad de agua y pasto</p>
-<p>Para analizar la disponibilidad de recursos hídricos, se realizó un estudio exploratorio en el periodo 1970-2015 en dos estaciones meteorológicas de la comuna: Cogotí y Las Ramadas. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía en la comuna.</p>
-</section>
-<section id="área-de-estudio" class="level2">
-<h2 class="anchored" data-anchor-id="área-de-estudio">Área de Estudio</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../imagenes/mapa_comba.jpg" class="img-fluid figure-img" style="width:60.0%" alt="mapa de combarbalá"></p>
-<figcaption>Mapa de la comuna de Combarbalá y las estaciones meteorológicas utilizadas)</figcaption>
-</figure>
 </div>
-</section>
-<section id="precipitación-mensual" class="level2">
-<h2 class="anchored" data-anchor-id="precipitación-mensual">Precipitación mensual</h2>
-<p>La precipitación en Combarbalá se caracteriza ser casi nula entre los meses de noviembre y febrero. La recarga hídrica de la comuna se da durante los meses de mayo y agosto (periodo de invernada), donde se activan las quebradas que recargan los ríos y nieva en la cordillera.</p>
-<p>En la estación Las Ramadas, la precipitación se observa de la siguiente manera:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../figuras/boxplot_ramadas.png" class="img-fluid figure-img" style="width:100.0%" alt="inicio de veranadas en combarbalá"></p>
-<figcaption>Boxplot de precipitación en Las Ramadas</figcaption>
-</figure>
-</div>
-</section>
-<section id="análisis-del-índice-spei-en-cogotí-y-ramadas" class="level1">
-<h1>Análisis del índice SPEI en Cogotí y Ramadas</h1>
-<p>Este sitio reúne un análisis exploratorio del índice de Precipitación-Evapotranspiración Estandarizado (SPEI), este permite medir la sequía en un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos) en dos estaciones meteorológicas de dos localidades:</p>
-<ul>
-<li><strong>Cogotí</strong></li>
-<li><strong>Las Ramadas</strong></li>
-</ul>
-<p>A partir de series históricas de precipitación y temperatura máxima/mínima, se calcula:</p>
-<ol type="1">
-<li>La <strong>evapotranspiración potencial (ETP)</strong> mediante el método de Hargreaves.<br>
-</li>
-<li>El <strong>balance hídrico mensual</strong> (precipitación menos ETP).<br>
-</li>
-<li>El <strong>SPEI</strong> a distintas escalas temporales (3 y 12 meses), para identificar periodos de sequía y humedad.</li>
-</ol>
-<hr>
-<section id="exploración-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="exploración-de-datos">Exploración de datos</h2>
-<ul>
-<li><p>Una serie con los registros de cada estación.</p></li>
-<li><p>Gráficos del <strong>SPEI a 12 meses</strong>, que permiten ver tendencias de sequía prolongada en el tiempo. <img src="../figuras/spei_12.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 12 en combarbalá"></p></li>
-<li><p>Gráficos del <strong>SPEI a 3 meses</strong>, útiles para variaciones más rápidas en la disponibilidad hídrica, siendo útil para evaluar los efectos en actividades de agricultura y ganadería.</p></li>
-</ul>
-<p><img src="../figuras/spei_03.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 3 en combarbalá"></p>
-<p>Puedes ir directamente al análisis detallado acá:</p>
-<ul>
-<li>👉 [Ver análisis] pagina-quarto/spei.qmd.qmd)</li>
-</ul>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">## Conclusiones</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="notas-técnicas" class="level2">
-<h2 class="anchored" data-anchor-id="notas-técnicas">Notas técnicas</h2>
-<ul>
-<li>Datos provenientes de la plataforma https://explorador.cr2.cl del Centro de Ciencia del Clima y Resiliencia (CR2)</li>
-<li>Datos utilizados: series mensuales de precipitación (mm), temperatura máxima (°C) y mínima (°C).</li>
-<li>Uso del paquete <strong><em>SPEI</em></strong> en RStudio con el cálculo de Evotranspiración: función <code>hargreaves()</code></li>
-<li>Cálculo de SPEI: función <code>spei()</code> del mismo paquete, para escalas de 3 y 12 meses.</li>
-<li>Sitio generado con <strong>Quarto</strong> y publicado como website estático.</li>
-</ul>
-</section>
-<section id="bibliografía" class="level2">
-<h2 class="anchored" data-anchor-id="bibliografía">Bibliografía</h2>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

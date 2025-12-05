@@ -6,11 +6,13 @@ website:
   title: "SPEI – Cogotí y Ramadas"
   navbar:
     left:
-      # Asegúrate que estas carpetas existan (si tus archivos están en la raíz, borra 'pagina_quarto/')
-      - href: index.qmd
+      # AHORA LAS RUTAS INCLUYEN EL NOMBRE DE LA CARPETA
+      - href: pagina-quarto/index.qmd
         text: Inicio
-      - href: spei.qmd
+      - href: pagina-quarto/spei.qmd
         text: Análisis SPEI
+      - href: pagina-quarto/precipitacion.qmd
+        text: Precipitación
 
 format:
   html:

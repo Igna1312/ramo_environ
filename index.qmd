@@ -6,7 +6,7 @@ format:
     toc: false
 ---
 ## Introducción
-![Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)](imagenes/IMG.jpg){fig-alt="inicio de veranadas en combarbalá" width="100%"}
+![Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)](../imagenes/IMG.jpg){fig-alt="inicio de veranadas en combarbalá" width="100%"}
 
 Combarbalá es una comuna rural de la Región de Coquimbo caracterizada por tener un clima semiárido de veranos secos e inviernos con altas precipitaciones. Esto se debe principalmente a que la comuna (Al igual que el resto del Norte chico) es altamente sensible al ENSO - El Niño Oscilación Sur, un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.
 
@@ -15,7 +15,7 @@ Las comunidades rurales de la comuna se han adaptado a esta oscilación teniendo
 Para analizar la disponibilidad de recursos hídricos, se realizó un estudio exploratorio en el periodo 1970-2015 en dos estaciones meteorológicas de la comuna: Cogotí y Las Ramadas. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía en la comuna.
 
 ## Área de Estudio
-![Mapa de la comuna de Combarbalá y las estaciones meteorológicas utilizadas)](imagenes/mapa_comba.jpg){fig-alt="mapa de combarbalá" width="60%"}
+![Mapa de la comuna de Combarbalá y las estaciones meteorológicas utilizadas)](../imagenes/mapa_comba.jpg){fig-alt="mapa de combarbalá" width="60%"}
 
 
 ## Precipitación mensual
@@ -24,7 +24,7 @@ La precipitación en Combarbalá se caracteriza ser casi nula entre los meses de
 
 En la estación Las Ramadas, la precipitación se observa de la siguiente manera:
 
-![Boxplot de precipitación en Las Ramadas](figuras/boxplot_ramadas.png){fig-alt="inicio de veranadas en combarbalá" width="100%"}
+![Boxplot de precipitación en Las Ramadas](../figuras/boxplot_ramadas.png){fig-alt="inicio de veranadas en combarbalá" width="100%"}
 
 
 # Análisis del índice SPEI en Cogotí y Ramadas
@@ -47,17 +47,17 @@ A partir de series históricas de precipitación y temperatura máxima/mínima, 
 
 -   Una serie con los registros de cada estación.
 -   Gráficos del **SPEI a 12 meses**, que permiten ver tendencias de sequía prolongada en el tiempo.
-![](figuras/spei_12.png){fig-alt="calculo de SPEI 12 en combarbalá" width="100%"}
+![](../figuras/spei_12.png){fig-alt="calculo de SPEI 12 en combarbalá" width="100%"}
 
 -   Gráficos del **SPEI a 3 meses**, útiles para variaciones más rápidas en la disponibilidad hídrica, siendo útil para evaluar los efectos en actividades de agricultura y ganadería.
 
-![](figuras/spei_03.png){fig-alt="calculo de SPEI 3 en combarbalá" width="100%"}
+![](../figuras/spei_03.png){fig-alt="calculo de SPEI 3 en combarbalá" width="100%"}
 
 
 Puedes ir directamente al análisis detallado acá:
 
 
--   👉 [Ver análisis SPEI](spei.qmd)
+-   👉 [Ver análisis] pagina-quarto/spei.qmd.qmd)
 
 ------------------------------------------------------------------------
 ## Conclusiones
