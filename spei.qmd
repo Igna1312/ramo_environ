@@ -26,6 +26,7 @@ lapply(pkgs, library, character.only = TRUE)
 # 2. Leer las bases de cada estación
 ###########################################################
 
+
 cogoti_raw <- read.csv(
   "data/cogoti_spei.csv",
   header = TRUE,
@@ -49,6 +50,69 @@ names(ramadas_raw)
 ###########################################################
 names(cogoti_raw)  <- c("agno", "mes", "dia", "pmen", "tmax", "tmin")
 names(ramadas_raw) <- c("agno", "mes", "dia", "pmen", "tmax", "tmin")
+
+
+# ------------------------------------------------------------
+# Boxplot Mensual: Sin Outliers + Color por Intensidad
+# ------------------------------------------------------------
+
+# 1) Cargar datos
+ruta_archivo <- "~/Desktop/spei/ramadas_spei (1971-2015)(Serie).csv"
+df <- read.csv(ruta_archivo, stringsAsFactors = FALSE)
+
+# Asegurar que la columna se llame 'pmen'
+if(!"pmen" %in% names(df) && "valor" %in% names(df)) {
+  df$pmen <- df$valor
+}
+
+# 2) Filtrar periodo (1971-2015)
+df_filtrado <- subset(df, agno >= 1971 & agno <= 2015)
+
+# 3) Convertir mes a Factor con nombres (Ene, Feb...)
+df_filtrado$mes_f <- factor(df_filtrado$mes,
+                            levels = 1:12,
+                            labels = c("Ene", "Feb", "Mar", "Abr", "May", "Jun",
+                                       "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"))
+
+# ------------------------------------------------------------
+# LOGICA DE COLORES INTELIGENTES
+# ------------------------------------------------------------
+# A) Calcular la mediana de lluvia para cada mes
+medianas <- tapply(df_filtrado$pmen, df_filtrado$mes, median, na.rm=TRUE)
+
+# B) Crear una paleta de 100 tonos de azul (de muy claro a oscuro)
+paleta_azul <- colorRampPalette(c("#E0F3DB", "#084081"))(100) # De verde-azul claro a azul noche
+
+# C) Asignar un color a cada mes según su mediana
+# Normalizamos los valores entre 1 y 100 para elegir el tono
+rango_max <- max(medianas)
+rango_min <- min(medianas)
+indices <- floor(((medianas - rango_min) / (rango_max - rango_min)) * 99) + 1
+colores_finales <- paleta_azul[indices]
+
+# ------------------------------------------------------------
+# GRAFICO
+# ------------------------------------------------------------
+
+par(mar = c(5, 5, 4, 2) + 0.1) 
+
+boxplot(pmen ~ mes_f, 
+        data = df_filtrado,
+        col  = colores_finales,    # Usamos nuestros colores calculados
+        main = "Precipitación Mensual (Ramadas 1971-2015)\n(Sin Outliers)",
+        xlab = "Mes",
+        ylab = "Precipitación (mm)",
+        las  = 1,
+        outline = FALSE,           # <--- ESTO QUITA LOS OUTLIERS
+        varwidth = TRUE,           # Ancho de cajas proporcional (opcional)
+        cex.axis = 0.9
+)
+
+grid(nx = NA, ny = NULL, lty = 3, col = "gray85")
+
+# LEYENDA
+legend("topright", legend = c("Más lluvioso", "Menos lluvioso"), 
+       fill = c(paleta_azul[100], paleta_azul[1]), bty = "n", cex=0.8)
 
 ###########################################################
 # 4. Crear columna de fecha y marcar estación meteorológica
@@ -156,6 +220,7 @@ ggplot(spei12_est, aes(x = fecha, y = spei)) +
     panel.grid.minor = element_blank()
   )
 
+
 ###########################################################
 # 9. (Opcional) Mismo tipo de gráfico, pero para SPEI-3
 ###########################################################
@@ -186,5 +251,6 @@ ggplot(spei3_est, aes(x = fecha, y = spei)) +
     axis.text.x  = element_text(angle = 45, hjust = 1),
     panel.grid.minor = element_blank()
   )
+
 
 ```

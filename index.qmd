@@ -1,14 +1,33 @@
 ---
-title: "Análisis exploratorio de la sequía en Cogotí y Las Ramadas (Región de Coquimbo, Chile)"
+title: "Análisis exploratorio de la sequía en Combarbalá (Región de Coquimbo, Chile)"
 author: Ignacio Pizarro
 format:
   html:
     toc: false
 ---
+## Introducción
+![Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)](data/IMG.jpg){fig-alt="inicio de veranadas en combarbalá" width="100%"}
 
-![Viejo mirando a los caballos oh el weon amanerao](data/IMG.jpg){fig-alt="Mapa de la zona de estudio (Cogotí y Las Ramadas, Región de Coquimbo)." width="100%"}
+Combarbalá es una comuna rural de la Región de Coquimbo caracterizada por tener un clima semiárido de veranos secos e inviernos con altas precipitaciones. Esto se debe principalmente a que la comuna (Al igual que el resto del Norte chico) es altamente sensible al ENSO - El Niño Oscilación Sur, un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.
+
+Las comunidades rurales de la comuna se han adaptado a esta oscilación teniendo un sistema de pastoreo que además está presente en todo el norte chico: La transhumancia o criancería caprina, la cual se divide las zonas de pastoreo en veranada e invernada. Esta forma de ganadería tradicional regula los tiempos de pastoreo en función de la disponibilidad de recursos hídricos y es una forma de adaptarse a la oscilación constante de precipitaciones producto del ENSO. A pesar de esta adaptación, los crianceros reportan en la actualidad que las veranadas están cambiando por una disminución nunca antes vista sobre la disponibilidad de agua y pasto
+
+Para analizar la disponibilidad de recursos hídricos, se realizó un estudio exploratorio en el periodo 1970-2015 en dos estaciones meteorológicas de la comuna: Cogotí y Las Ramadas. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía en la comuna.
+
+## Área de Estudio
+![Mapa de la comuna de Combarbalá y las estaciones meteorológicas utilizadas)](data/mapa_comba.jpg){fig-alt="mapa de combarbalá" width="60%"}
+
+
+## Precipitación mensual
+
+La precipitación en Combarbalá se caracteriza ser casi nula entre los meses de noviembre y febrero. La recarga hídrica de la comuna se da durante los meses de mayo y agosto (periodo de invernada), donde se activan las quebradas que recargan los ríos y nieva en la cordillera.
+
+En la estación Las Ramadas, la precipitación se observa de la siguiente manera:
+
+
 
 # Análisis del índice SPEI en Cogotí y Ramadas
+
 
 Este sitio reúne un análisis exploratorio del índice de Precipitación-Evapotranspiración Estandarizado (SPEI), este permite medir la sequía en un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos) en dos estaciones meteorológicas de dos localidades:
 
@@ -49,3 +68,4 @@ Puedes ir directamente al análisis detallado acá:
 -   Cálculo de SPEI: función `spei()` del mismo paquete, para escalas de 3 y 12 meses.
 -   Sitio generado con **Quarto** y publicado como website estático.
 
+## Bibliografía
