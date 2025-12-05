@@ -1,6 +1,5 @@
 # spei-cogoti-ramadas
 
-      
 
 Precipitacion_y_sequia_Combarbalá/
 ├── README.md
