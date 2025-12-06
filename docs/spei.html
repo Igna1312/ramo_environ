@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ignacio Pizarro">
 
-<title>Análisis de Precipitación y SPEI – SPEI – Cogotí y Ramadas</title>
+<title>Código de análisis de Precipitación – Sequía en Limarí Precordillerano</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">SPEI – Cogotí y Ramadas</span>
+    <span class="navbar-title">Sequía en Limarí Precordillerano</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -128,8 +128,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./README.md"> 
+<span class="menu-text">Sobre el proyecto</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link active" href="./spei.html" aria-current="page"> 
-<span class="menu-text">Análisis SPEI</span></a>
+<span class="menu-text">Código de análisis de Precipitación</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -159,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Análisis de Precipitación y SPEI</h1>
+<h1 class="title">Código de análisis de Precipitación</h1>
 </div>
 
 
@@ -353,7 +357,7 @@ $ spei_03  &lt;dbl&gt; NA, NA, -0.07306118, 0.24514050, -0.38907950, 0.88506499,
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">boxplot</span>(pmen <span class="sc">~</span> <span class="fu">factor</span>(mes, <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">labels =</span> meses_esp), <span class="at">data =</span> df_box,</span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">col =</span> colores, <span class="at">outline =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Precipitación Mensual en"</span>, nombre_estacion, <span class="st">"(1970-2015)"</span>),</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">ylab =</span> <span class="st">"Pp (mm)"</span>, </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">ylab =</span> <span class="st">"Precipitación acumulada mensual (mm)"</span>, </span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlab =</span> <span class="st">""</span>, <span class="co"># Eliminamos etiqueta por defecto</span></span>
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="co"># Apagamos eje automático</span></span>
 <span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">las =</span> <span class="dv">1</span>, <span class="at">varwidth =</span> <span class="cn">TRUE</span>)</span>
@@ -381,7 +385,7 @@ $ spei_03  &lt;dbl&gt; NA, NA, -0.07306118, 0.24514050, -0.38907950, 0.88506499,
 <span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Iterar la función sobre cada estación usando purrr::walk</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Iterar la función sobre la estacion Cogotí usando purrr::walk</span></span>
 <span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="fu">walk</span>(estaciones_lista, generar_boxplot)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">

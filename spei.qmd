@@ -1,9 +1,9 @@
 ---
-title: "Análisis de Precipitación y SPEI"
+title: "Código de análisis de Precipitación"
 author: "Ignacio Pizarro"
-format:               # <--- Falta esta línea clave
-  html:               # <--- Debe tener 2 espacios de sangría
-    fig-width: 8      # <--- 4 espacios
+format:             
+  html:              
+    fig-width: 8      
     fig-height: 5
     code-fold: true
     toc: true
@@ -161,7 +161,7 @@ generar_boxplot <- function(nombre_estacion) {
     boxplot(pmen ~ factor(mes, levels=1:12, labels = meses_esp), data = df_box,
             col = colores, outline = FALSE, 
             main = paste("Precipitación Mensual en", nombre_estacion, "(1970-2015)"),
-            ylab = "Pp (mm)", 
+            ylab = "Precipitación acumulada mensual (mm)", 
             xlab = "", # Eliminamos etiqueta por defecto
             xaxt = "n", # Apagamos eje automático
             las = 1, varwidth = TRUE)
@@ -189,7 +189,7 @@ generar_boxplot <- function(nombre_estacion) {
   dev.off()
 }
 
-# 3. Iterar la función sobre cada estación usando purrr::walk
+# 3. Iterar la función sobre la estacion Cogotí usando purrr::walk
 walk(estaciones_lista, generar_boxplot)
 ```
 

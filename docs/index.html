@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ignacio Pizarro">
 
-<title>Análisis exploratorio de la sequía en la Precordillera del Limarí (Región de Coquimbo, Chile) – SPEI – Cogotí y Ramadas</title>
+<title>Análisis exploratorio de la sequía en la Precordillera del Limarí (Región de Coquimbo, Chile) – Sequía en Limarí Precordillerano</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,17 +54,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 
@@ -80,11 +80,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">SPEI – Cogotí y Ramadas</span>
+    <span class="navbar-title">Sequía en Limarí Precordillerano</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -94,8 +94,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./README.md"> 
+<span class="menu-text">Sobre el proyecto</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./spei.html"> 
-<span class="menu-text">Análisis SPEI</span></a>
+<span class="menu-text">Código de análisis de Precipitación</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -122,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
              <p>Ignacio Pizarro </p>
           </div>
@@ -145,49 +149,75 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)</figcaption>
 </figure>
 </div>
-<p>La precordillera del Limarí se encuentra compuesta por las comunas de Monte Patria y Combarbalá (Región de Coquimbo), se caracteriza por su clima semiárido, con veranos secos e inviernos con breves precipitaciones. Esto se debe principalmente a que la zona (Al igual que el resto del Norte chico) es altamente sensible al ENSO - El Niño Oscilación Sur (Meza, 2013), un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.</p>
-<p>Los habitantes de la precordillera se han adaptado a esta oscilación teniendo un sistema de pastoreo conocido como <em>transhumancia</em>, la cual se divide las zonas de pastoreo en veranada e invernada. Esta forma de ganadería tradicional regula los tiempos de pastoreo en función de la disponibilidad de recursos hídricos y es una forma de adaptarse a la oscilación constante de precipitaciones producto del ENSO (Erazo &amp; Garay-Flühmann, 2011). A pesar de esta adaptación tradicional, los crianceros reportan en la actualidad que la temporada de veranadas está cambiando por una disminución nunca antes vista sobre la disponibilidad de agua y pasto.</p>
-<p>Para analizar la disponibilidad de recursos hídricos en la zona de estudio, se realizó un análisis exploratorio en dos estaciones meteorológicas: Cogotí (Comuna de Combarbalá) y Las Ramadas (Comuna de Monte Patria) durante el periodo 1970-2015. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía en la zona que se denominará a continuación como <strong>Limarí Precordillerano</strong>.</p>
+<p>El <strong>Limarí Precordillerano</strong> se encuentra presente en las comunas de Monte Patria y Combarbalá (Región de Coquimbo), se caracteriza por su clima semiárido, con veranos secos e inviernos con breves precipitaciones. Esto se debe principalmente a que la zona es altamente sensible al ENOS - El Niño Oscilación Sur (Meza, 2013), un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.</p>
+<p>Los habitantes de la precordillera se han adaptado a esta oscilación teniendo un sistema de pastoreo conocido como <em>transhumancia</em>, la cual se divide las zonas de pastoreo en veranada e invernada. Esta forma de ganadería tradicional regula los tiempos de pastoreo en función de la disponibilidad de recursos hídricos y es una forma de adaptarse a la oscilación constante de precipitaciones producto del ENOS (Erazo &amp; Garay-Flühmann, 2011). A pesar de esta adaptación tradicional, los crianceros reportan en la actualidad que la temporada de veranadas está cambiando por una disminución nunca antes vista sobre la disponibilidad de agua y pasto.</p>
+</section>
+<section id="audiencia" class="level2">
+<h2 class="anchored" data-anchor-id="audiencia">Audiencia</h2>
+<p>Esta página está pensada para profesionales que les interese conocer sobre el comportamiento hidrológico de la precordillera del Limarí y también para habitantes del Limarí que deseen observar cómo ha cambiado el patrón de lluvia y los periodos de sequía en su provincia, es por esto que se emplea un lenguaje académico pero no excesivamente técnico para explicar los conceptos y métodos empleados.</p>
+</section>
+<section id="objetivos" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
+<p>Objetivo general: Explorar los patrones de precipitación en el Limarí precordillerano a través de dos estaciones meteorológicas durante el periodo 1970-2015</p>
+<p>Objetivos específicos:<br>
+- 1) Identificar los patrones de precipitación a una escala anual - 2) Analizar los cambios en los patrones de sequía durante el periodo 1970 - 2015 - 3) Comparar el comportamiento de ambas estaciones ante la sequía</p>
+</section>
+<section id="materiales-y-métodos" class="level2">
+<h2 class="anchored" data-anchor-id="materiales-y-métodos">Materiales y Métodos</h2>
+<p>Para analizar la disponibilidad de recursos hídricos en la zona de estudio, se realizó un análisis exploratorio en dos estaciones meteorológicas: Cogotí (Comuna de Combarbalá) y Las Ramadas (Comuna de Monte Patria) durante el periodo 1970-2015. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía, este permite medir la sequía de un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos), lo que permite observar los impactos de la sequía a diferentes escalas (Beguería et al,. 2014).</p>
 </section>
 <section id="área-de-estudio" class="level2">
 <h2 class="anchored" data-anchor-id="área-de-estudio">Área de Estudio</h2>
-<p><img src="imagenes/mapa_estudio.png" class="img-fluid" alt="mapa de combarbalá y monte patria"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/mapa_estudio.png" class="img-fluid figure-img" alt="mapa de combarbalá y monte patria"></p>
+<figcaption>Mapa elaborado con ArcgisPro</figcaption>
+</figure>
+</div>
 </section>
 <section id="precipitación-mensual" class="level2">
 <h2 class="anchored" data-anchor-id="precipitación-mensual">Precipitación mensual</h2>
-<p>La precipitación en este sector se caracteriza ser casi nula entre los meses de noviembre y febrero. La recarga hídrica de la comuna se da durante los meses de mayo y agosto (periodo de invernada), donde se activan las quebradas que recargan los ríos y nieva en la cordillera.</p>
-<p>En la estación Las Ramadas, la precipitación se observa de la siguiente forma:</p>
-<p><img src="figuras/boxplot_las_ramadas.png" class="img-fluid" style="width:100.0%" alt="inicio de veranadas en combarbalá"> <img src="figuras/boxplot_cogot'i.png" class="img-fluid" style="width:100.0%" alt="inicio de veranadas en combarbalá"></p>
+<p>La precipitación en el Limarí precordillerado se caracteriza ser casi nula entre los meses de noviembre y febrero. La recarga hídrica se da durante los meses de mayo y agosto (periodo de invernada), donde se activan las quebradas que recargan los ríos y nieva en la cordillera. Durante los meses de invernada, las precipitaciones tienden a ser tan irregulares que llegan tener a valores atípicos altos (para mejorar la visualización de los gráficos estos han sido limpiados del gráfico)</p>
+<p>El patrón de precipitación anual se observa de la siguiente forma en las dos estaciones</p>
+<p><img src="figuras/boxplot_las_ramadas.png" class="img-fluid" style="width:100.0%" alt="boxplot_ramadas"> <img src="figuras/boxplot_cogot'i.png" class="img-fluid" style="width:100.0%" alt="boxplot_cogoti"> Si bien ambas exiben un aumento importante entre los meses de mayo y agosto, las precipitaciones en Las Ramadas son más altas que en Cogotí. Su rango también se expande, teniendo precipitaciones hasta octubre. Esto puede deberse a que Las ramadas se ubica a más altura, teniendo una mayor precipitación por su cercanía con la Cordillera de los Andes</p>
 </section>
-<section id="análisis-del-índice-spei-en-cogotí-y-ramadas" class="level1">
-<h1>Análisis del índice SPEI en Cogotí y Ramadas</h1>
-<p>Este sitio reúne un análisis exploratorio del índice de Precipitación-Evapotranspiración Estandarizado (SPEI), este permite medir la sequía en un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos) en dos estaciones meteorológicas de dos localidades:</p>
-<p>La clasificación del SPEI divide en valores positivos y negativos la humedad, como se observa en la siguiente tabla: <img src="imagenes/tabla_SPEI.jpg" class="img-fluid" alt="Tabla de valores SPEI"></p>
-<p>A partir de series históricas de precipitación y temperatura máxima/mínima, se calcula:</p>
-<ol type="1">
-<li>La <strong>evapotranspiración potencial (ETP)</strong> mediante el método de Hargreaves.<br>
-</li>
-<li>El <strong>balance hídrico mensual</strong> (precipitación menos ETP).<br>
-</li>
+<section id="análisis-del-índice-spei-en-cogotí-y-las-ramadas" class="level1">
+<h1>Análisis del índice SPEI en Cogotí y Las Ramadas</h1>
+<p>La clasificación del SPEI divide en valores positivos y negativos la humedad, como se observa en la siguiente tabla: <img src="imagenes/tabla_SPEI.jpg" class="img-fluid" alt="Tabla de valores SPEI"> A partir de series históricas de precipitación y temperatura máxima/mínima, se calcula:</p>
+<ul>
+<li><ol type="1">
+<li>La <strong>evapotranspiración potencial (ETP)</strong> mediante el método de Hargreaves.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>El <strong>balance hídrico mensual</strong> (precipitación menos ETP).</li>
+</ol></li>
+<li><ol start="3" type="1">
 <li>El <strong>SPEI</strong> a distintas escalas temporales (3 y 12 meses), para identificar periodos de sequía y humedad.</li>
-</ol>
-<hr>
+</ol></li>
+</ul>
 <section id="exploración-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="exploración-de-datos">Exploración de datos</h2>
+<h2 class="anchored" data-anchor-id="exploración-de-datos">## Exploración de datos</h2>
 <ul>
-<li><p>Una serie con los registros de cada estación.</p></li>
-<li><p>Gráficos del <strong>SPEI a 12 meses</strong>, que permiten ver tendencias de sequía prolongada en el tiempo. <img src="figuras/spei_12.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 12 en combarbalá"></p></li>
-<li><p>Gráficos del <strong>SPEI a 3 meses</strong>, útiles para variaciones más rápidas en la disponibilidad hídrica, siendo útil para evaluar los efectos en actividades de agricultura y ganadería.</p></li>
+<li>La serie de tiempo de <strong>SPEI12</strong> permite ver tendencias de sequía prolongada en el tiempo.</li>
 </ul>
-<p><img src="figuras/spei_03.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 3 en combarbalá"></p>
-<p>Puedes ir directamente al análisis detallado acá:</p>
+<p><img src="figuras/spei_12.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 12 en limari"> En este caso, podemos diferencias claves entre cada estación. Si bien ambas poseen periodos de sequía y humedad en que se sincronizan parcialmente, Las Ramadas tiende a tener valores más positivos que Cogotí, teniendo incluso valores positivos en 1980 cuando se marcaron índices de que Cogotí estaba severamente. Ambas estaciones pasan por picos de sequía desde 1994, con pocos años que vuelven a ser húmedos por falta de precipitación. En el periodo de 1993 hasta 2010 se comportan de forma similar ambas estaciones (Aunque Las Ramadas sigue teniendo valores más positivos), después de esto, Cogotí tiene años más húmedos que Las Ramadas, pero ambos sectores se ven afectados por periodos más extensos de sequía, habiendo pocos húmedos desde 1994.</p>
+<p>nota metodológica: El SPEI12 no pudo ser calculado para el año 1970 en Las Ramadas por falta de datos del año 1969, lo cual es fundamental para comparar los 12 meses anteriores y sacar el valor.</p>
+<hr>
 <ul>
-<li>👉 <a href="./spei.html">Ver análisis SPEI</a></li>
+<li>La serie de tiempo de <strong>SPEI3</strong> permite variaciones más cortas en la disponibilidad hídrica, siendo útil para evaluar los efectos en actividades de agricultura y ganadería (Beguería et al., 2014).</li>
 </ul>
+<p><img src="figuras/spei_03.png" class="img-fluid" style="width:100.0%" alt="calculo de SPEI 3 en combarbalá"> En ambos casos se puede observar que los periodos de sequía y humedad son mucho más pronunciados y cortos en el tiempo. Además de que contrario al gráfico de <strong>SPEI12</strong>, Las Ramadas tiene más periodos secos entre 1970 y 1980 que Cogotí. En ambos casos, la severidad de la sequía aumenta , teniendo desde periodos antiguos valores que rondan el severamente seco. Esta situacón se ve intensificada en 2006 y 2009 en Cogotí, donde alcanza valores de extremadamente seco (casi llegando al -3).</p>
+<p>En ambos casos, desde 1994 comienza a tener periodos más extensos que en las décadas anteriores como ocurrío con la serie de tiempo de SPEI12. La sequía sigue siendo bastante aguda para ambos sectores, pero Cogotí nuevamente mejores proyecciones que Las Ramadas en esta serie de tiempo, reprotando periodos cortos de mayor precipitación desde 2010.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">## Conclusiones</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comparando los graficos creados, ambas estaciones exhiben una reducción importante de su precipitación y un aumento de la sequía. El SPEI12 permite ver el comportamiento a largo plazo de la sequía, mientras que el SPEI3 evidencia que los periodos de sequía y humedad tienen una oscilación más corta. A pesar de que Las Ramadas tenga una mayor captación de precipitación que Cogotí, en ambas se puede observar que la precordillera del Limarí ha reducido de forma importante su recarga hídrica desde 1994, anteriormente, ambos sectores oscilaban en periodos cortos de sequía y humedad, pero en los últimos diez años de la serie de tiempo, se muestra que los periodos de sequía son mucho más largos.</td>
 </tr>
 </tbody>
 </table>
@@ -195,15 +225,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="notas-técnicas" class="level2">
 <h2 class="anchored" data-anchor-id="notas-técnicas">Notas técnicas</h2>
 <ul>
-<li>Datos provenientes de la plataforma https://explorador.cr2.cl del Centro de Ciencia del Clima y Resiliencia (CR2)</li>
-<li>Datos utilizados: series mensuales de precipitación (mm), temperatura máxima (°C) y mínima (°C).</li>
-<li>Uso del paquete <strong><em>SPEI</em></strong> en RStudio con el cálculo de Evotranspiración: función <code>hargreaves()</code></li>
-<li>Cálculo de SPEI: función <code>spei()</code> del mismo paquete, para escalas de 3 y 12 meses.</li>
-<li>Sitio generado con <strong>Quarto</strong> y publicado como website estático.</li>
+<li><p>Para revisar el código utilizado para los gráficos, puedes hacer click en el link inferior o hacer click en “Análsis de Precipitación” en la parte superior de la página</p></li>
+<li><p><a href="./spei.html">Ver código de análisis de precipitación</a></p></li>
+<li><p>Datos provenientes de la plataforma https://explorador.cr2.cl del Centro de Ciencia del Clima y Resiliencia (CR2)</p></li>
+<li><p>Para revisar los paquetes empleados y otra información del proyeccio, puedes revisar la pestaña</p></li>
+<li><p><a href="README.md">Sobre el proyecto</a></p></li>
 </ul>
 </section>
 <section id="bibliografía" class="level2">
 <h2 class="anchored" data-anchor-id="bibliografía">Bibliografía</h2>
+<p>Beguería, S., Vicente‐Serrano, S. M., Reig, F., &amp; Latorre, B. (2014). Standardized precipitation evapotranspiration index (SPEI) revisited: parameter fitting, evapotranspiration models, tools, datasets and drought monitoring. International journal of climatology, 34(10), 3001-3023.</p>
 <p>Erazo, M. B., &amp; Garay-Flühmann, R. (2011). Tierras secas e identidad. Una aproximación cultural a las prácticas de subsistencia de las comunidades campesinas del semiárido: Provincia de Elqui, Chile. Revista de Geografía Norte Grande, (50), 45-61.</p>
 <p>Meza, F. J. (2013). Recent trends and ENSO influence on droughts in Northern Chile: An application of the Standardized Precipitation Evapotranspiration Index. Weather and Climate extremes, 1, 51-58.</p>
 
@@ -255,12 +286,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

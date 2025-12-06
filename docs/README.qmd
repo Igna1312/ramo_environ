@@ -1,0 +1,23 @@
+---
+title: "Sobre el proyecto"
+author: Ignacio Pizarro
+editor: visual
+format:
+  html:
+    toc: false        # Desactiva la tabla de contenidos en la versión web
+  gfm:
+    toc: true         # Activa la tabla de contenidos en GitHub Markdown
+about:
+  template: jolla             # Nombre de la plantilla (centrada)
+  image: imagenes/IMG.jpg     # Ruta a tu foto
+  image-width: 15em           # Ancho de la foto
+  image-shape: round          # Forma de la foto (redonda)
+links:
+    - icon: github            # Icono de GitHub
+      text: Github            # Texto del botón
+      href: https://github.com/Igna1312  # Tu enlace
+      
+    - icon: envelope          # Icono de sobre (email)
+      text: Contacto          # Texto del botón
+      href: mailto:ignacio.pizarro@uc.cl # Tu correo
+---

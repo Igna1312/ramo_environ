@@ -1,1 +1,15 @@
-p, li {text-align: justify !important; }
+/* 1. Regla General: Justificar texto en todo el sitio */
+p, li {
+  text-align: justify; /* Quitamos !important para permitir excepciones */
+}
+
+/* 2. EXCEPCIÓN: Forzar CENTRADO en la plantilla 'About' (Jolla) */
+/* Esto arregla el formato de tu README en la web */
+.about-entity, .about-contents, .about-links {
+  text-align: center !important;
+}
+
+/* Ajuste opcional para imágenes en about */
+.about-entity img {
+  margin-bottom: 1em;
+}

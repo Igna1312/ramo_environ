@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ignacio Pizarro">
 
-<title>README.qmd</title>
+<title>readme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -44,78 +77,34 @@ ul.task-list li input[type="checkbox"] {
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">README.qmd</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ignacio Pizarro </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="análisis-de-sequía-y-precipitación-en-el-limarí-precordillerano" class="level1">
-<h1>Análisis de Sequía y Precipitación en el Limarí Precordillerano</h1>
-<p>Este proyecto analiza el comportamiento histórico de las precipitaciones y la severidad de las sequías en &nbsp;Limarí precordillerano&nbsp;, compuesto por las comunas de Combarbalá y Monte Patria (Región de Coquimbo, Chile), una zona caracterizada por la transhumancia y la sensibilidad al fenómeno ENOS (El Niño Oscilación Sur).</p>
-<p>Para analizar este fenómeno, se ha optado por utilizar datos de las estaciones meteorológicas &nbsp;<strong>Las Ramadas (Monte Patria)</strong>&nbsp;y&nbsp;<strong>Cogotí (Combarbalá)</strong>, realizando boxplots de precipitacion mensual y series de tiempo para calcular el&nbsp;<strong>Índice Estandarizado de Precipitación y Evapotranspiración (SPEI)</strong>&nbsp;para identificar tendencias de sequía durante el periodo 1970 - 2015.</p>
-<p>Los datos crudos han sido extraídos de la plataforma <strong>Explorador Climático (</strong><a href="https://explorador.cr2.cl" class="uri">https://explorador.cr2.cl</a>) desarrollado por el <strong>Centro de Ciencia del Clima y la Resiliencia (CR2),</strong> la cual tiene disponible datos históricos de precipitación, temperatura y otras variables. Para el análisis, ocupamos precipitación acumulada mensual, temperatura máxima mensual y temperatura mínima mensual de las estaciones Las Ramadas y Cogotí.</p>
-<p>👉&nbsp;<a href="https://www.google.com/search?q=https://igna1312.github.io/Precipitacion_y_sequia_Combarbala/" title="null"><strong>Ver Sitio Web del Proyecto</strong></a>&nbsp;(Si activas GitHub Pages)</p>
-<section id="estructura-del-proyecto" class="level2">
-<h2 class="anchored" data-anchor-id="estructura-del-proyecto">Estructura del Proyecto</h2>
-<p>El proyecto está organizado de la siguiente manera para garantizar la reproducibilidad:</p>
-<pre><code>Precipitacion_y_sequia_Combarbala/
-├── _quarto.yml          # Configuración del sitio web
-├── index.qmd            # Página de inicio y análisis de datos
-├── spei.qmd             # Código R y Gráficos
-├── styles.css           # Estilos personalizado
-├── README.qmd           # Fuente de este documento
-├── data/
-│   ├── data_raw/        # Archivos CSV crudos por estación (pp, tmax, tmin)
-│   └── data_procesada/  # Datos limpios y unificados (generados por R)
-├── docs/                # Carpeta de salida (Sitio Web generado)
-└── figuras/             # Gráficos exportados en PNG
-└── imagenes/            # Imágenes extraídas de otras fuentes</code></pre>
-</section>
-<section id="lenguaje-de-programación-y-paquetes" class="level2">
-<h2 class="anchored" data-anchor-id="lenguaje-de-programación-y-paquetes">Lenguaje de programación y paquetes</h2>
-<p>El trabajo completo fue realizado en&nbsp;<strong>RStudio</strong>&nbsp;utilizando los siguientes paquetes:</p>
-<ul>
-<li><strong><code>Pacman</code></strong>: Gestor de paquetes para hacer eficiente la instalación</li>
-</ul>
-<!-- -->
-<ul>
-<li><p><strong><code>tidyverse</code></strong>: Manipulación, visualización y limpieza de datos.</p></li>
-<li><p><strong><code>SPEI</code></strong>: Cálculo de índices de sequía y evapotranspiración (método Hargreaves).</p></li>
-<li><p><strong><code>lubridate</code></strong>: Manejo de fechas.</p></li>
-<li><p><strong><code>here</code></strong>&nbsp;y&nbsp;<strong><code>fs</code></strong>: Gestión de rutas de archivos.</p></li>
-<li><p><strong><code>Quarto</code></strong>: Generación del sitio web</p></li>
-</ul>
-</section>
-<section id="declaración-de-uso-de-inteligencia-artificial" class="level2">
-<h2 class="anchored" data-anchor-id="declaración-de-uso-de-inteligencia-artificial">Declaración de uso de Inteligencia Artificial</h2>
-<p>El autor declara haber utilizado Inteligencia Artificial, específicamente Google Gemini para resolver dudas y generar una estructura más eficiente del código. Para asegurar el correcto uso de la herramienta, se revisó el código y los datasets, además de comparar los resultados on otros estudios que utilizan SPEI, como los de Meza (2013) y del Núcleo Milenio AndesPeat.</p>
-</section>
-<section id="agradecimientos" class="level2">
-<h2 class="anchored" data-anchor-id="agradecimientos">Agradecimientos</h2>
-<p>El autor agradece al <strong>Centro de Ciencia del Clima y la Resiliencia (CR2)</strong> por los datos entregados, ya sin un acceso fácil a estos, el trabajo no hubiese sido posible. También los crianceros de Combarbalá por la entrega de sus relatos para la proyecto de tesis “<em>Más allá de la Cordillera: Cambio climático y Transhumancia en Combarbalá”</em>, si bien sus relatos no son parte del análisis estadístico generado, es gracias a ellos que el autor le interesó analizar la sequía en el Limarí precordillerano. Sus historias nutren la curiosidad y urgencia de pensar la crisis climática en un territorio tan frágil como el Limarí, lugar de donde proviene la familia del autor..</p>
-<p><em>Autor: Ignacio Pizarro</em></p>
-</section>
-</section>
+<p><strong>Analisis de Sequia y Precipitacion en el Limari Precordillerano</strong></p>
+<p>Autor: Ignacio Pizarro</p>
+<p><strong>Sobre el Proyecto:</strong></p>
+<p>Este proyecto analiza el comportamiento historico de las precipitaciones y la severidad de las sequias en el Limari precordillerano, compuesto por las comunas de Combarbala y Monte Patria (Region de Coquimbo, Chile), una zona caracterizada por la transhumancia y la sensibilidad al fenómeno ENOS (El Niño Oscilación Sur).Para analizar este fenomeno, se ha optado por utilizar datos de las estaciones meteorológicas Las Ramadas (Monte Patria) y Cogoti (Combarbala), realizando boxplots de precipitación mensual y series de tiempo para calcular el Indice Estandarizado de Precipitacion y Evapotranspiracion (SPEI) para identificar tendencias de sequia durante el periodo 1970 - 2015. Los datos crudos han sido extraidos de la plataforma Explorador Climatico (https://explorador.cr2.cl) desarrollado por el Centro de Ciencia del Clima y la Resiliencia (CR2), la cual tiene disponible datos historicos de precipitacion, temperatura y otras variables.</p>
+<p><strong>Estructura del Proyecto:</strong></p>
+<p>El proyecto esta organizado de la siguiente manera:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Precipitacion_y_sequia_Combarbala/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> _quarto.yml          <span class="co"># Configuracion del sitio web</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> index.qmd            <span class="co"># Pagina de inicio y analisis de datos</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> spei.qmd             <span class="co"># Codigo R y Graficos</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> styles.css           <span class="co"># Estilos personalizado</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md            <span class="co"># Informacian general del proyecto</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data/</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── data_raw/        <span class="co"># Archivos CSV crudos por estacion</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── data_procesada/  <span class="co"># Datos limpios y unificados</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> docs/                <span class="co"># Carpeta de salida (Sitio Web generado)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> figuras/             <span class="co"># Graficos exportados en PNG</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Herramienta de analisis y Paquetes</strong></p>
+<p>El trabajo completo fue realizado en RStudio utilizando los siguientes paquetes:</p>
+<p>pacman: Gestor de paquetes para hacer eficiente la instalacion. tidyverse: Manipulacion, visualizacion y limpieza de datos. SPEI: Calculo de índices de sequia y evapotranspiracion (metodo Hargreaves). lubridate: Manejo de fechas. here y fs: Gestion de rutas de archivos. Quarto: Generacion del sitio web.</p>
+<p><strong>Declaración de uso de Inteligencia Artificial</strong></p>
+<p>El autor declara haber utilizado Inteligencia Artificial, especificamente Google Gemini, para resolver dudas y generar una estructura mas eficiente del código. Para asegurar el correcto uso de la herramienta, se reviso el código y los datasets, ademas de comparar los resultados con otros estudios que utilizan SPEI, como los de Meza (2013) y del Núcleo Milenio AndesPeat.</p>
+<p><strong>Agradecimientos</strong></p>
+<p>El autor agradece al Centro de Ciencia del Clima y la Resiliencia (CR2) por los datos entregados. Tambien a los crianceros de Combarbala por la entrega de sus relatos para el proyecto de tesis “Mas alla de la Cordillera: Cambio climatico y Transhumancia en Combarbala”. Sus historias nutren la curiosidad y urgencia de pensar la crisis climatica en un territorio tan fragil como el Limari.</p>
+<p>Contacto: ignacio.pizarro@uc.cl</p>
 
 </main>
 <!-- /main column -->
