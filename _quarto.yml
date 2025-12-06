@@ -3,18 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "SPEI – Cogotí y Ramadas"
+  title: "Sequía en Limarí Precordillerano"
   navbar:
     left:
       - href: index.qmd
         text: Inicio
+      - href: README.md
+        text: Sobre el proyecto
       - href: spei.qmd
-        text: Análisis SPEI
-      - href: README.qmd
-        text: Sobre el Proyecto
+        text: Código de análisis de Precipitación
 
 format:
   html:
     theme: cosmo
     toc: true
     css: styles.css
+    lang: es      

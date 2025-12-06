@@ -6,6 +6,7 @@ format:
     toc: false
 ---
 ## Introducción
+
 ![Inicio de las veranadas en el Río Cogotí (Fuente: Diario El Combarbalino)](imagenes/IMG.jpg){fig-alt="inicio de veranadas en combarbalá" width="100%"}
 
 El **Limarí Precordillerano** se encuentra presente en las comunas de Monte Patria y Combarbalá (Región de Coquimbo), se caracteriza por su clima semiárido, con veranos secos e inviernos con breves precipitaciones. Esto se debe principalmente a que la zona  es altamente sensible al ENOS - El Niño Oscilación Sur (Meza, 2013), un patrón climático natural en el Pacífico que incluye fases cálidas (El Niño) y frías (La Niña). Este fenómeno oscila cada 2 a 7 años y genera diferencias importantes en los patrones de precipitación, temperatura y humedad.
@@ -24,7 +25,7 @@ Objetivos específicos:
 -   1) Identificar los patrones de precipitación a una escala anual
 -   2) Analizar los cambios en  los patrones de sequía durante el periodo 1970 - 2015
 -   3) Comparar el comportamiento de ambas estaciones ante la sequía
-                        
+
 ## Materiales y Métodos
 
 Para analizar la disponibilidad de recursos hídricos en la zona de estudio, se realizó un análisis exploratorio en dos estaciones meteorológicas: Cogotí (Comuna de Combarbalá) y Las Ramadas (Comuna de Monte Patria) durante el periodo 1970-2015. Este análisis incluye la creación de boxplots de precipitación mensual y líneas de tiempo del Índice de Precipitación-Evapotranspiración Estandarizado (SPEI) para identificar los periodos de sequía, este permite medir la sequía de un sector a partir de la comparación temporal de datos de precipitación mensual, temperatura máxima y minima (Hargreaves, 1994). Para este estudio, se utilizó SPEI 12 (el cual mide sequia en un periodo de 12 meses consecutivos) y SPEI 3 (mide sequia en un periodo de 3 meses consecutivos), lo que permite observar los impactos de la sequía a diferentes escalas (Beguería et al,. 2014). 
@@ -43,7 +44,7 @@ El patrón de precipitación anual se observa de la siguiente forma en las dos e
 ![Boxplot de precipitación en Cogotí](figuras/boxplot_cogot'i.png){fig-alt="boxplot_cogoti" width="100%"}
 Si bien ambas exiben un aumento importante entre los meses de mayo y agosto, las precipitaciones en Las Ramadas son más altas que en Cogotí. Su rango también se expande, teniendo precipitaciones hasta octubre. Esto puede deberse a que Las ramadas se ubica a más altura, teniendo una mayor precipitación por su cercanía con la Cordillera de los Andes  
 
-# Análisis del índice SPEI en Cogotí y Las Ramadas
+## Análisis del índice SPEI en Cogotí y Las Ramadas
 
 La clasificación del SPEI divide en valores positivos y negativos la humedad, como se observa en la siguiente tabla: 
 ![](imagenes/tabla_SPEI.jpg){fig-alt="Tabla de valores SPEI"}
