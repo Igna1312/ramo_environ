@@ -1,0 +1,62 @@
+---
+title: "README.qmd"
+author: "Ignacio Pizarro"
+editor: visual
+---
+
+# Análisis de Sequía y Precipitación en el Limarí Precordillerano
+
+Este proyecto analiza el comportamiento histórico de las precipitaciones y la severidad de las sequías en  Limarí precordillerano , compuesto por las comunas de Combarbalá y Monte Patria (Región de Coquimbo, Chile), una zona caracterizada por la transhumancia y la sensibilidad al fenómeno ENOS (El Niño Oscilación Sur).
+
+Para analizar este fenómeno, se ha optado por utilizar datos de las estaciones meteorológicas  **Las Ramadas (Monte Patria)** y **Cogotí (Combarbalá)**, realizando boxplots de precipitacion mensual y series de tiempo para calcular el **Índice Estandarizado de Precipitación y Evapotranspiración (SPEI)** para identificar tendencias de sequía durante el periodo 1970 - 2015.
+
+Los datos crudos han sido extraídos de la plataforma **Explorador Climático (**<https://explorador.cr2.cl>) desarrollado por el **Centro de Ciencia del Clima y la Resiliencia (CR2),** la cual tiene disponible datos históricos de precipitación, temperatura y otras variables. Para el análisis, ocupamos precipitación acumulada mensual, temperatura máxima mensual y temperatura mínima mensual de las estaciones Las Ramadas y Cogotí.
+
+👉 [**Ver Sitio Web del Proyecto**](https://www.google.com/search?q=https://igna1312.github.io/Precipitacion_y_sequia_Combarbala/ "null") (Si activas GitHub Pages)
+
+## Estructura del Proyecto
+
+El proyecto está organizado de la siguiente manera para garantizar la reproducibilidad:
+
+```         
+Precipitacion_y_sequia_Combarbala/
+├── _quarto.yml          # Configuración del sitio web
+├── index.qmd            # Página de inicio y análisis de datos
+├── spei.qmd             # Código R y Gráficos
+├── styles.css           # Estilos personalizado
+├── README.qmd           # Fuente de este documento
+├── data/
+│   ├── data_raw/        # Archivos CSV crudos por estación (pp, tmax, tmin)
+│   └── data_procesada/  # Datos limpios y unificados (generados por R)
+├── docs/                # Carpeta de salida (Sitio Web generado)
+└── figuras/             # Gráficos exportados en PNG
+└── imagenes/            # Imágenes extraídas de otras fuentes
+```
+
+## Lenguaje de programación y paquetes
+
+El trabajo completo fue realizado en **RStudio** utilizando los siguientes paquetes:
+
+-    **`Pacman`**: Gestor de paquetes para hacer eficiente la instalación
+
+<!-- -->
+
+-   **`tidyverse`**: Manipulación, visualización y limpieza de datos.
+
+-   **`SPEI`**: Cálculo de índices de sequía y evapotranspiración (método Hargreaves).
+
+-   **`lubridate`**: Manejo de fechas.
+
+-   **`here`** y **`fs`**: Gestión de rutas de archivos.
+
+-   **`Quarto`**: Generación del sitio web
+
+## Declaración de uso de Inteligencia Artificial
+
+El autor declara haber utilizado Inteligencia Artificial, específicamente Google Gemini para resolver dudas y generar una estructura más eficiente del código. Para asegurar el correcto uso de la herramienta, se revisó el código y los datasets, además de comparar los resultados on otros estudios que utilizan SPEI, como los de Meza (2013) y del Núcleo Milenio AndesPeat.
+
+##  Agradecimientos
+
+El autor agradece al **Centro de Ciencia del Clima y la Resiliencia (CR2)** por los datos entregados, ya sin un acceso fácil a estos, el trabajo no hubiese sido posible. También los crianceros de Combarbalá por la entrega de sus relatos para la proyecto de tesis "*Más allá de la Cordillera: Cambio climático y Transhumancia en Combarbalá"*, si bien sus relatos no son parte del análisis estadístico generado, es gracias a ellos que el autor le interesó analizar la sequía en el Limarí precordillerano. Sus historias nutren la curiosidad y urgencia de pensar la crisis climática en un territorio tan frágil como el Limarí, lugar de donde proviene la familia del autor..
+
+*Autor: Ignacio Pizarro*

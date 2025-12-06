@@ -25,7 +25,7 @@ rm(list = ls())
 
 # 1. Cargar paquetes
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, SPEI, lubridate, fs, here)
+pacman::p_load(tidyverse, SPEI, lubridate, fs, here, purrr)
 
 # 2. Definir Rutas de Datos Crudos
 # Asumimos que los archivos están en "data/data_raw/" con nombres simplificados
